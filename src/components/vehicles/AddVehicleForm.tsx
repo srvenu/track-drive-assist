@@ -86,7 +86,18 @@ const AddVehicleForm: React.FC<AddVehicleFormProps> = ({ open, onClose, editVehi
         description: `Your ${values.make} ${values.model} has been updated.`,
       });
     } else {
-      addVehicle(values);
+      // Ensure required values are present before passing to addVehicle
+      addVehicle({
+        make: values.make,
+        model: values.model,
+        year: values.year,
+        licensePlate: values.licensePlate,
+        vin: values.vin,
+        color: values.color,
+        currentMileage: values.currentMileage,
+        nextServiceMileage: values.nextServiceMileage,
+        nextServiceDate: values.nextServiceDate,
+      });
       toast({
         title: 'Vehicle added',
         description: `Your ${values.make} ${values.model} has been added.`,

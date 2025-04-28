@@ -110,7 +110,17 @@ const AddServiceRecordForm: React.FC<AddServiceRecordFormProps> = ({
         description: `The service record for ${values.serviceType} has been updated.`,
       });
     } else {
-      addServiceRecord(values);
+      // Ensure all required fields are present
+      addServiceRecord({
+        vehicleId: values.vehicleId,
+        date: values.date,
+        serviceType: values.serviceType,
+        description: values.description,
+        cost: values.cost,
+        mileage: values.mileage,
+        serviceCenter: values.serviceCenter,
+        notes: values.notes,
+      });
       toast({
         title: 'Service record added',
         description: `A new service record for ${values.serviceType} has been added.`,
