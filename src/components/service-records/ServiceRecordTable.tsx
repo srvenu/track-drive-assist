@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import {
   ColumnDef,
@@ -64,7 +65,8 @@ const ServiceRecordTable: React.FC<ServiceRecordTableProps> = ({ vehicleId, onEd
         <Checkbox
           checked={
             table.getIsAllPageRowsSelected() ||
-            (table.getIsSomePageRowsSelected() && "indeterminate")
+            (table.getIsSomePageRowsSelected() && "indeterminate") ||
+            false
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
